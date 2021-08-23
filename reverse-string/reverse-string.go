@@ -1,14 +1,6 @@
 func reverseString(s []byte)  {
-    // Recursive solution
-    var swap func(int, int)
-    swap = func(i, j int) {
-        if i<j {
-            s[i], s[j] = s[j], s[i]
-            i++
-            j--
-            swap(i, j)
-        }
+    // Iterative solution
+    for i,j := 0, len(s) -1; i<j; i,j = i+1, j-1{
+        s[i], s[j] = s[j], s[i]
     }
-    i, j := 0, len(s)-1
-    swap(i, j)
 }
