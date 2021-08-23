@@ -7,13 +7,13 @@
  */
 
 type LinkedList struct {
-	head   *ListNode
+	head *ListNode
 }
 
 func (l *LinkedList) Prepend(n *ListNode) {
 	if l.head == nil {
 		n.Next = nil
-        l.head = n
+		l.head = n
 	} else {
 		n.Next = l.head
 		l.head = n
@@ -21,11 +21,11 @@ func (l *LinkedList) Prepend(n *ListNode) {
 }
 
 func reverseList(head *ListNode) *ListNode {
-    l := LinkedList{}
-    for head != nil {
-        temp := head.Next
-        l.Prepend(head)
-        head = temp
-    }
-    return l.head
+	l := LinkedList{}
+	for head != nil {
+		temp := head.Next
+		l.Prepend(head)
+		head = temp
+	}
+	return l.head
 }

@@ -1,6 +1,6 @@
 func fizzBuzz(n int) []string {
 	// Solutin using a switch
-    var result []string
+	var result []string
 	for i := 1; i <= n; i++ {
 		switch {
 		case i%5 == 0 && i%3 == 0:
