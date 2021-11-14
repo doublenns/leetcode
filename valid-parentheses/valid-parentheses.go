@@ -9,17 +9,15 @@ func isValid(s string) bool {
     for _,c := range s{
         if _, ok := braces[c]; ok {
             stack = append(stack, c)
-        } else {
-            if len(stack) <= 0 {
+        } else if len(stack) <= 0 {
                 return false
-            } else {
-                l := len(stack) -1
-                t := stack[l]
-                if braces[t] != c {
-                    return false
-                }
-                stack = stack[:l]
+        } else {
+            l := len(stack) -1
+            t := stack[l]
+            if braces[t] != c {
+                return false
             }
+            stack = stack[:l]
         }
     }
     
