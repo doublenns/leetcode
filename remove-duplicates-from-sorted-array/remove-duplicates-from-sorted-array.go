@@ -1,5 +1,4 @@
 func removeDuplicates(nums []int) int {
-    // for i, v := range nums{
     for i := 0; i < len(nums) -1; i++ {
         if nums[i] == nums[i+1] {
             copy(nums[i:], nums[i+1:])
