@@ -1,9 +1,15 @@
 func removeDuplicates(nums []int) int {
-    for i := 0; i < len(nums) -1; i++ {
-        if nums[i] == nums[i+1] {
-            nums = append(nums[:i], nums[i+1:]...)
-            i--
+    l := len(nums)
+    if l <= 1 {
+        return l
+    }
+    
+    i := 0
+    for j := 1; j < l; j++ {
+        if nums[i] != nums[j] {
+            nums[i+1] = nums[j]
+            i++
         }
     }
-    return len(nums)
+    return i+1
 }
