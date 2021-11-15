@@ -1,43 +1,20 @@
 import "strings"
 
-// Create a type of struct to store the "naked" word and the int that indicates
-// the word's position in the original un-shuffled sentence
-type word struct {
-    str string
-    pos rune
-}
-
-func separateWords(s string) []word {
-    // Store the word structs in a slice
-    var words []word
-    
-    for _, v := range strings.Fields(s) {
-        length := len(v)
-        w := word{
-            pos: []rune(v)[length -1],
-            str: string([]rune(v)[:length-1]),
-        }
-        words = append(words, w)
-    }
-    
-    return words
-}
-
 func sortSentence(s string) string {
 
-    words := separateWords(s)
+    words := strings.Fields(s)
+    // Preallocate space in slice for each word of sentence
+    result := make([]string, len(words))
 
-    // Sort the slice of structs based on the "pos" attribute
-    sort.Slice(words, func(i, j int) bool {
-		return words[i].pos < words[j].pos
-	})
-    
-    // Iterate through the slice of structs and place them in a new slice, in 
-    // correct sentence order
-    var result []string
-    for _, st := range words {
-        result = append(result, st.str)
+    for _, word := range words {
+        length := len(word)
+        posChar := word[length - 1]
+        // '0' (rune["0"]) == 48; '1' == 49
+        // Subtract 1 at end to have the pos 0 indexed
+        pos := posChar - '0' - 1
+        result[pos] = word[:length-1]
     }
+    
     // Return the slice of words, separated by a space
     return strings.Join(result, " ")
 }
