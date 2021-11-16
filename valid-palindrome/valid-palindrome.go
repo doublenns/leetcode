@@ -1,4 +1,4 @@
-import "strings"
+// The "strings" import in previous submission slowed down execution considerably
 
 func removeNonAlphanumerics(s string) string {
     diff := 'A' - 'a'
@@ -11,6 +11,17 @@ func removeNonAlphanumerics(s string) string {
             result.WriteRune(r - diff)
         }
     }
+    
+    // Using bytes, where possible, instead of runes to see if faster
+    // for i := 0; i < len(s); i++ {
+    //     b := s[i]
+    //     if (b >= 'a' && b <= 'z') || (b >= '0' && b <= '9')  {
+    //         result.WriteByte(b)
+    //     } else if b >= 'A' && b <= 'Z' {
+    //         result.WriteRune(rune(b) - diff)
+    //     }
+    // }
+    
     return result.String()
 }
 
