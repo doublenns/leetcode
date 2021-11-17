@@ -3,7 +3,7 @@ func areNumbersAscending(s string) bool {
 
 	for i := 0; i < len(s); i++ {
 		if isDigit(s[i]) {
-            var number int
+			var number int
 			number, i = readNumber(s, i)
 			if number <= compare {
 				return false
