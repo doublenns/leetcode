@@ -4,11 +4,7 @@ func validPalindrome(s string) bool {
         for i, j := start, end; i <= j; i, j = i+1, j-1 {
             if s[i] != s[j] {
                 if skipAvailable {
-                    if validSubPalindrome(i+1, j, false) || validSubPalindrome(i, j-1, false) {
-                        return true
-                    } else {
-                        return false
-                    }
+                    return validSubPalindrome(i+1, j, false) || validSubPalindrome(i, j-1, false)
                 } else {
                     return false
                 }   
