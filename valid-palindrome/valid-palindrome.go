@@ -1,25 +1,39 @@
-// The "strings" import in previous submission seem to slow down execution considerably
-
-func removeNonAlphanumerics(s string) string {
-    diff := 'A' - 'a'
-    
-    var result strings.Builder
-    for _, r := range s {
-        if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') {
-            result.WriteRune(r)
-        } else if r >= 'A' && r <= 'Z' {
-            result.WriteRune(r - diff)
-        }
-    }
-    return result.String()
-}
-
 func isPalindrome(s string) bool {
-    p := removeNonAlphanumerics(s)
-    for i, j := 0, len(p)-1; i <= j; i, j = i+1, j-1 {
-        if p[i] != p[j] {
-            return false
+    diff := 'A' - 'a'
+    j := len(s)-1;
+    
+    for i, r := range s {
+        if i >= j {
+            break
         }
+        if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') || (r >= 'A' && r <= 'Z') {
+            if r >= 'A' && r <= 'Z' {
+                r -= diff
+            }
+        } else {
+            continue
+        }
+                                                            
+        
+        for j >= i {
+            c := rune(s[j])
+            if (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') {
+                if c != r {
+                    return false
+                }
+            } else if c >= 'A' && c <= 'Z' {
+                c -= diff
+                if c != r {
+                    return false
+                }
+            }   else {
+                j--
+                continue
+            }
+            j--
+            break
+        }
+        
     }
     return true
 }
