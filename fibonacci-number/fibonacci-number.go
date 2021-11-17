@@ -3,10 +3,8 @@ func fib(n int) int {
     prev := 0
     curr := 1
     
-    if n == 0 {
-        return prev
-    } else if n == 1 {
-        return curr
+    if n <= 1 {
+        return n
     }
     
     for i := 2; i <= n ; i++ {
