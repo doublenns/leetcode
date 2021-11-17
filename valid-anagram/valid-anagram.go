@@ -3,18 +3,17 @@ func isAnagram(s string, t string) bool {
         return false
     }
     
-    check1 := make(map[rune]int)
-    check2 := make(map[rune]int)
+    check := make(map[rune]int)
     
     for _, v := range s {
-        check1[v]++
+        check[v]++
     }
     for _, v := range t {
-        check2[v]++
+        check[v]--
     }
     
-    for i, v := range check1 {
-        if check2[i] != v {
+    for _, v := range check {
+        if v != 0 {
             return false
         }
     }
