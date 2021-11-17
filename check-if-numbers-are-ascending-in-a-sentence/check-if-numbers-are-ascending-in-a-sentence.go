@@ -1,14 +1,15 @@
 func areNumbersAscending(s string) bool {
-	number, last := 0, -1
+	compare := 0
 
 	for i := 0; i < len(s); i++ {
 		if isDigit(s[i]) {
+            var number int
 			number, i = readNumber(s, i)
-			if number <= last {
+			if number <= compare {
 				return false
 			}
 
-			last = number
+			compare = number
 		}
 	}
 
