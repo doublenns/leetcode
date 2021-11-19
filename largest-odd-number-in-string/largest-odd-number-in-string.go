@@ -8,8 +8,5 @@ func largestOddNumber(num string) string {
             break
         }
     }
-    if last == -1 {
-        return ""
-    }
     return strings.Join(nums[:last+1], "")
 }
