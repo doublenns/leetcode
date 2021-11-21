@@ -1,3 +1,4 @@
+[Discussion Post (created on 20/10/2021 at 18:31)](https://leetcode.com/problems/remove-linked-list-elements/discuss/1588871/Go-Solutions)  
 <h2>203. Remove Linked List Elements</h2><h3>Easy</h3><hr><div><p>Given the <code>head</code> of a linked list and an integer <code>val</code>, remove all the nodes of the linked list that has <code>Node.val == val</code>, and return <em>the new head</em>.</p>
 
 <p>&nbsp;</p>
