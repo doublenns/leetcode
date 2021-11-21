@@ -1,21 +1,13 @@
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 func hasCycle(head *ListNode) bool {
+    // Hashmap lookup solution
     seen := make(map[*ListNode]struct{})
     exists := struct{}{}
     
-    curr := head
-    for curr != nil && curr.Next != nil {
+    for curr := head; curr != nil; curr = curr.Next {
         if _, ok := seen[curr]; ok {
             return true
         }
         seen[curr] = exists
-        curr = curr.Next
     }
     return false
 }
