@@ -1,5 +1,3 @@
-// Newton's method
-
 const DELTA = 0.01
 
 func mySqrt(x int) int {
