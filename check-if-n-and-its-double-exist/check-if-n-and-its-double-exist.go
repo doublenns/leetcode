@@ -3,12 +3,13 @@ func checkIfExist(arr []int) bool {
     exists := struct{}{}
     
     for _, v := range arr {
-        if _, ok := seen[v*2]; ok {
-            return true
-        } else if v % 2 == 0 {
+        if v % 2 == 0 {
             if _, ok := seen[v/2]; ok {
                 return true
             }
+        }
+        if _, ok := seen[v*2]; ok {
+            return true
         }
         seen[v] = exists
     }
