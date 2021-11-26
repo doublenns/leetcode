@@ -5,8 +5,6 @@ func checkIfExist(arr []int) bool {
         for j, x := range arr {
             if i != j && x % 2 == 0 && v * 2 == x {
                 return true
-            } else if i != j && v % 2 == 0 && x * 2 == v {
-                return true
             }
         }
     }
