@@ -1,14 +1,14 @@
 func checkIfExist(arr []int) bool {
-    seen := make(map[float64]struct{})
+    seen := make(map[int]struct{})
     exists := struct{}{}
     
     for _, v := range arr {
-        if _, ok := seen[float64(v)*2.0]; ok {
+        if _, ok := seen[v*2]; ok {
             return true
-        } else if _, ok := seen[float64(v)/2.0]; ok {
+        } else if _, ok := seen[v/2]; ok && v % 2 ==0 {
             return true
         } else {
-            seen[float64(v)] = exists
+            seen[v] = exists
         }
     }
     return false
