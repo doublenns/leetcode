@@ -13,12 +13,8 @@
  *   }
  */
 func printLinkedListInReverse(head ImmutableListNode) {
-    var st []ImmutableListNode
-    
     for curr := head; curr != nil; curr = curr.getNext() {
-        st = append(st, curr)
+        defer curr.printValue()
     }
-    for i := len(st) -1 ; i >= 0 ; i-- {
-        st[i].printValue()
-    }
+
 }
