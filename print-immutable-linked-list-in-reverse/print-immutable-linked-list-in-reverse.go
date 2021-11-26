@@ -35,13 +35,13 @@ func (st *Stack) Pop() (ImmutableListNode, error) {
 
 
 func printLinkedListInReverse(head ImmutableListNode) {
-    var st Stack
+    var st []ImmutableListNode
     
     for curr := head; curr != nil; curr = curr.getNext() {
-        st.Push(curr)
+        st = append(st, curr)
     }
-    for v, err := st.Pop() ; err == nil; v, err = st.Pop() {
-        v.printValue()
+    for i := len(st) -1 ; i >= 0 ; i-- {
+        st[i].printValue()
     }
     
 }
