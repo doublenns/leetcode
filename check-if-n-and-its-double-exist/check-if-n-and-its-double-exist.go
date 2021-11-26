@@ -1,17 +1,15 @@
 func checkIfExist(arr []int) bool {
-    seen := make(map[int]struct{})
-    exists := struct{}{}
+    // O(n^2) solution (nested for loop)
     
-    for _, v := range arr {
-        if v % 2 == 0 {
-            if _, ok := seen[v/2]; ok {
+    for i, v := range arr {
+        for j, x := range arr {
+            if i != j && x % 2 == 0 && v * 2 == x {
+                return true
+            } else if i != j && v % 2 == 0 && x * 2 == v {
                 return true
             }
         }
-        if _, ok := seen[v*2]; ok {
-            return true
-        }
-        seen[v] = exists
     }
+
     return false
 }
